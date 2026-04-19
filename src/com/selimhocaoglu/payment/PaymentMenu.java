@@ -52,18 +52,16 @@ public class PaymentMenu {
         for (int i = 0; i < availableMethods.size(); i++) {
             System.out.println((i + 1) + ". " + availableMethods.get(i).getMethodName());
         }
-        System.out.print("Enter the number corresponding to your choice: ");
+        System.out.print("Enter your choice: ");
 
         int choice = scanner.nextInt() - 1;
 
-        if (choice >= 0 && choice < availableMethods.size()) {
-
-            return availableMethods.get(choice);
-        } else {
-
+        if (choice < 0 || choice >= availableMethods.size()) {
             System.out.println("Invalid choice. Please try again.");
             return null;
         }
+
+        return availableMethods.get(choice);
     }
 
     private Double enterAmount() {
